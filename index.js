@@ -8,7 +8,20 @@ const dates = [
 ];
 
 // TODO: Buatlah fungsi createDate
-const createDate = null;
+const createDate = (dateArray, index = null) => {
+  if (index === null) {
+    const list = [];
+    for (const dateArrayElement of dateArray) {
+      list.push(convertSecondToMillisecond(Date.parse(dateArrayElement)));
+    }
+    return list.sort().join('-');
+  }
+  const date = dateArray[index];
+  return convertSecondToMillisecond(Date.parse(date)).toString();
+};
+
+const convertSecondToMillisecond =
+    (number) => number / 1_000;
 
 // ! JANGAN DIMODIFIKASI
 (() => {
